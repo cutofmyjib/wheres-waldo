@@ -34,10 +34,6 @@ h1 {
 #waldo {
   width: 800px;
   height: 75%;
-  margin: auto;
-  background: url('waldo.png');
-  background-repeat: no-repeat;
-  background-size: contain;
 }
 
 .hint {

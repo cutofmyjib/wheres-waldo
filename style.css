@@ -1,0 +1,49 @@
+body {
+  font-family: 'Montserrat', sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: tomato;
+  color: white;
+  padding: 12px;
+  height: 15vh;
+}
+
+h1 {
+  margin: 0;
+  padding: 0;
+}
+
+.content {
+  box-sizing: border-box;
+  height: 85vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#waldo {
+  width: 800px;
+  height: 75%;
+  margin: auto;
+  background: url('waldo.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.hint {
+  display: flex;
+  justify-content: center;
+  height: 15%;
+  width: 100%;
+  border: 1px solid black;
+}

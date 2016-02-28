@@ -6,30 +6,36 @@ $(document).ready(function() {
     clickCount += 1;
 
     var getHint = function(distance) {
+
       switch (true) {
         case distance < 8:
-          return("You found Waldo in " + clickCount + " clicks!");
+          return({message: "You found Waldo in " + clickCount + " clicks!", bg: "#1CC000"});
+        case distance < 30:
+          return({message: "Super boiling hot", bg: "#780116"})
+        case distance < 50:
+          return({message: "Boiling hot", bg: "#B70003"});
 
-        case distance < 15:
-          return("Super boiling hot")
-        case distance < 25:
-          return("Boiling hot");
+        case distance < 90:
+          return({message: "Hot", bg: "#FF5900"});
 
-        case distance < 40:
-          return("Hot");
+        case distance < 180:
+          return({message: "Warm", bg: "#FCBA04"});
 
-        case distance < 80:
-          return("Warm");
-
-        case distance < 160:
-          return("Cold");
+        case distance < 250:
+          return({message: "Cold", bg: "#007FFF"});
 
         default:
-          return("Freezing");
+          background = 'freezing'
+          return({message: "Freezing", bg: "#0B1D51"});
       }
     }
     var hintText = getHint(distance);
-    flashHint(hintText)
+    showHint(hintText);
+    var hideMessage = function() {
+      $("#hint").text("");
+      $(".hint-div").css("background", "none");
+    }
+    var hideHint = setTimeout(hideMessage, 500);
   })
 
 });
@@ -42,6 +48,7 @@ var getDistance = function(event, target) {
   return Math.sqrt((diffX * diffX) + (diffY * diffY))
 }
 
-var flashHint = function(message) {
-  $("#hint").text(message);
+var showHint = function(hint) {
+  $("#hint").text(hint.message);
+  $(".hint-div").css("background", hint.bg);
 }
